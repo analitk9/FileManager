@@ -1,9 +1,3 @@
-//
-//  DetailViewController.swift
-//  FileManager
-//
-//  Created by Denis Evdokimov on 4/28/22.
-//
 
 import UIKit
 import SnapKit
