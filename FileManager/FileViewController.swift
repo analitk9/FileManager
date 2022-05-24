@@ -108,20 +108,21 @@ class FileViewController: UIViewController {
     }
     
     func getDocumentsDirectory() -> URL {
-       FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {fatalError()}
+        return dir
     }
     
     func saveData(){
         let jsonEncoder = JSONEncoder()
         if let data = try?  jsonEncoder.encode(photoBank) {
-            UserDefaults.standard.setValue(data, forKey:"photoBank")
+           try? data.write(to: getDocumentsDirectory().appendingPathComponent("photoBank"))
         }else {
             print("problem with save data")
         }
     }
     
     func loadData() {
-        guard let data =  UserDefaults.standard.object(forKey: "photoBank") as? Data else {return}
+        guard let data = try? Data(contentsOf: getDocumentsDirectory().appendingPathComponent("photoBank")) else {return}
          do
              {
                   photoBank = try JSONDecoder().decode([Photo].self, from: data)

@@ -10,7 +10,7 @@ class ViewModel {
         }
     }
     
-    private let token = Keychain(service: Bundle.main.bundleIdentifier!)
+    private let keychainService: Keychain
     var onStateChanged: ((ModelState) -> Void)?
     var sortType: SortType = .asc
     var passwordMode: PasswordMode
@@ -19,7 +19,9 @@ class ViewModel {
         passwordMode.rawValue
     }
     
-    init(passwordMode: PasswordMode) {
+    init(passwordMode: PasswordMode, keychainService: Keychain) {
+        
+        self.keychainService = keychainService
         self.passwordMode = passwordMode
     }
     
@@ -43,13 +45,13 @@ class ViewModel {
                 state = .wrongPass(.wrongPasswordConfirm)
                 
             } else {
-                token[Bundle.main.bundleIdentifier!] = enterPassword //сохраняем пароль
+                keychainService[keychainService.service] = enterPassword //сохраняем пароль
                 state = .login
                 
             }
             
         case .enterPassword:
-            let savePassword = token[Bundle.main.bundleIdentifier!]
+            let savePassword = keychainService[keychainService.service]
             if savePassword == enterPassword {
                 state = .login
             } else {

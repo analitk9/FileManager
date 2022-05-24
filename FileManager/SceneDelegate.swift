@@ -11,10 +11,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let group = Bundle.main.bundleIdentifier!
-        let token = Keychain(service: group)
-        let password = token[group]
-        let model = ViewModel(passwordMode: password != nil ? .enterPassword: .createPassword)
+        guard let group = Bundle.main.bundleIdentifier else {fatalError()}
+        let keychainService = Keychain(service: group)
+        let password = keychainService[keychainService.service]
+        let model = ViewModel(passwordMode: password != nil ? .enterPassword: .createPassword, keychainService: keychainService)
         let sortType = UserDefaults.standard.string(forKey: "sortType")
         if let sortType = sortType {
             model.sortType = .init(rawValue: sortType) ?? .asc
