@@ -1,11 +1,6 @@
-//
-//  SceneDelegate.swift
-//  FileManager
-//
-//  Created by Denis Evdokimov on 4/27/22.
-//
 
 import UIKit
+import KeychainAccess
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -15,8 +10,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
       
         guard let scene = (scene as? UIWindowScene) else { return }
-         window = UIWindow(windowScene: scene)
-        let navController = UINavigationController(rootViewController: ViewController())
+        window = UIWindow(windowScene: scene)
+        guard let group = Bundle.main.bundleIdentifier else {fatalError()}
+        let keychainService = Keychain(service: group)
+        let password = keychainService[keychainService.service]
+        let model = ViewModel(passwordMode: password != nil ? .enterPassword: .createPassword, keychainService: keychainService)
+        let sortType = UserDefaults.standard.string(forKey: "sortType")
+        if let sortType = sortType {
+            model.sortType = .init(rawValue: sortType) ?? .asc
+        }
+        
+        let navController = UINavigationController(rootViewController: LoginViewController(model: model))
         window?.rootViewController = navController
         window?.makeKeyAndVisible()
     }

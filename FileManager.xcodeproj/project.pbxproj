@@ -7,28 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		649EB3AE28206DE80074F7DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 649EB3AD28206DE80074F7DB /* SnapKit */; };
+		649EB3B4282291110074F7DB /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649EB3B3282291110074F7DB /* SettingViewController.swift */; };
 		64BC2EBD2819736900488A2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EBC2819736900488A2B /* AppDelegate.swift */; };
 		64BC2EBF2819736900488A2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EBE2819736900488A2B /* SceneDelegate.swift */; };
-		64BC2EC12819736900488A2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EC02819736900488A2B /* ViewController.swift */; };
+		64BC2EC12819736900488A2B /* FileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EC02819736900488A2B /* FileViewController.swift */; };
 		64BC2EC62819736A00488A2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BC2EC52819736A00488A2B /* Assets.xcassets */; };
 		64BC2EC92819736A00488A2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64BC2EC72819736A00488A2B /* LaunchScreen.storyboard */; };
-		64BC2ED2281ABD3500488A2B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 64BC2ED1281ABD3500488A2B /* SnapKit */; };
 		64BC2ED4281AC3DF00488A2B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2ED3281AC3DF00488A2B /* TableViewCell.swift */; };
 		64BC2ED6281ACC7200488A2B /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2ED5281ACC7200488A2B /* PhotoModel.swift */; };
 		64BC2ED8281AD47500488A2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2ED7281AD47500488A2B /* DetailViewController.swift */; };
+		64BC2EDA281FF36100488A2B /* PasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2ED9281FF36100488A2B /* PasswordView.swift */; };
+		64BC2EDC281FF38300488A2B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EDB281FF38300488A2B /* ViewModel.swift */; };
+		64BC2EDE281FFF3600488A2B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EDD281FFF3600488A2B /* LoginViewController.swift */; };
+		64BC2EE028200AFF00488A2B /* KeyboardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EDF28200AFF00488A2B /* KeyboardHelper.swift */; };
+		64BC2EE32820111800488A2B /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 64BC2EE22820111800488A2B /* KeychainAccess */; };
+		64BC2EE528201CD200488A2B /* LoginError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EE428201CD200488A2B /* LoginError.swift */; };
+		64BC2EE72820334C00488A2B /* ErrorAlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BC2EE62820334C00488A2B /* ErrorAlertService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		649EB3B3282291110074F7DB /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		64BC2EB92819736900488A2B /* FileManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FileManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64BC2EBC2819736900488A2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64BC2EBE2819736900488A2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		64BC2EC02819736900488A2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		64BC2EC02819736900488A2B /* FileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileViewController.swift; sourceTree = "<group>"; };
 		64BC2EC52819736A00488A2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64BC2EC82819736A00488A2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64BC2ECA2819736A00488A2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64BC2ED3281AC3DF00488A2B /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		64BC2ED5281ACC7200488A2B /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		64BC2ED7281AD47500488A2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		64BC2ED9281FF36100488A2B /* PasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordView.swift; sourceTree = "<group>"; };
+		64BC2EDB281FF38300488A2B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		64BC2EDD281FFF3600488A2B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		64BC2EDF28200AFF00488A2B /* KeyboardHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHelper.swift; sourceTree = "<group>"; };
+		64BC2EE428201CD200488A2B /* LoginError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginError.swift; sourceTree = "<group>"; };
+		64BC2EE62820334C00488A2B /* ErrorAlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +51,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64BC2ED2281ABD3500488A2B /* SnapKit in Frameworks */,
+				64BC2EE32820111800488A2B /* KeychainAccess in Frameworks */,
+				649EB3AE28206DE80074F7DB /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +81,14 @@
 				64BC2EBC2819736900488A2B /* AppDelegate.swift */,
 				64BC2ED3281AC3DF00488A2B /* TableViewCell.swift */,
 				64BC2EBE2819736900488A2B /* SceneDelegate.swift */,
-				64BC2EC02819736900488A2B /* ViewController.swift */,
+				64BC2EC02819736900488A2B /* FileViewController.swift */,
+				64BC2ED9281FF36100488A2B /* PasswordView.swift */,
+				64BC2EDD281FFF3600488A2B /* LoginViewController.swift */,
+				649EB3B3282291110074F7DB /* SettingViewController.swift */,
+				64BC2EE62820334C00488A2B /* ErrorAlertService.swift */,
+				64BC2EDF28200AFF00488A2B /* KeyboardHelper.swift */,
+				64BC2EDB281FF38300488A2B /* ViewModel.swift */,
+				64BC2EE428201CD200488A2B /* LoginError.swift */,
 				64BC2ED7281AD47500488A2B /* DetailViewController.swift */,
 				64BC2ED5281ACC7200488A2B /* PhotoModel.swift */,
 				64BC2EC52819736A00488A2B /* Assets.xcassets */,
@@ -92,7 +115,8 @@
 			);
 			name = FileManager;
 			packageProductDependencies = (
-				64BC2ED1281ABD3500488A2B /* SnapKit */,
+				64BC2EE22820111800488A2B /* KeychainAccess */,
+				649EB3AD28206DE80074F7DB /* SnapKit */,
 			);
 			productName = FileManager;
 			productReference = 64BC2EB92819736900488A2B /* FileManager.app */;
@@ -123,7 +147,8 @@
 			);
 			mainGroup = 64BC2EB02819736900488A2B;
 			packageReferences = (
-				64BC2ED0281ABD3500488A2B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				64BC2EE12820111800488A2B /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				649EB3AC28206DE80074F7DB /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 64BC2EBA2819736900488A2B /* Products */;
 			projectDirPath = "";
@@ -151,11 +176,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64BC2EC12819736900488A2B /* ViewController.swift in Sources */,
+				64BC2EDE281FFF3600488A2B /* LoginViewController.swift in Sources */,
+				64BC2EE528201CD200488A2B /* LoginError.swift in Sources */,
+				64BC2EC12819736900488A2B /* FileViewController.swift in Sources */,
+				649EB3B4282291110074F7DB /* SettingViewController.swift in Sources */,
+				64BC2EDA281FF36100488A2B /* PasswordView.swift in Sources */,
 				64BC2ED4281AC3DF00488A2B /* TableViewCell.swift in Sources */,
+				64BC2EE028200AFF00488A2B /* KeyboardHelper.swift in Sources */,
 				64BC2EBD2819736900488A2B /* AppDelegate.swift in Sources */,
 				64BC2ED8281AD47500488A2B /* DetailViewController.swift in Sources */,
 				64BC2ED6281ACC7200488A2B /* PhotoModel.swift in Sources */,
+				64BC2EE72820334C00488A2B /* ErrorAlertService.swift in Sources */,
+				64BC2EDC281FF38300488A2B /* ViewModel.swift in Sources */,
 				64BC2EBF2819736900488A2B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,21 +398,34 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64BC2ED0281ABD3500488A2B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		649EB3AC28206DE80074F7DB /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				branch = develop;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		64BC2EE12820111800488A2B /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		64BC2ED1281ABD3500488A2B /* SnapKit */ = {
+		649EB3AD28206DE80074F7DB /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 64BC2ED0281ABD3500488A2B /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = 649EB3AC28206DE80074F7DB /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		64BC2EE22820111800488A2B /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64BC2EE12820111800488A2B /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

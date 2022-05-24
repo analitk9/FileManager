@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  FileManager
-//
-//  Created by Denis Evdokimov on 4/27/22.
-//
 
 import UIKit
 import SnapKit
@@ -13,10 +7,11 @@ enum photoSource {
     case disk
 }
 
-class ViewController: UIViewController {
+class FileViewController: UIViewController {
     
     var photoBank  = [Photo]()
     var source: photoSource = .disk
+    var model: ViewModel
     
     let tableView: UITableView = {
         let table = UITableView(frame: .zero)
@@ -24,7 +19,20 @@ class ViewController: UIViewController {
         return table
     }()
     
-
+    init(model: ViewModel) {
+        self.model = model
+        super.init(nibName: nil, bundle: nil)
+       
+        configureNavigateBar()
+        loadData()
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+       
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(TableViewCell.self, forCellReuseIdentifier: TableViewCell.reuseIdentifier)
@@ -32,10 +40,16 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         view.backgroundColor = .gray
         view.addSubview(tableView)
-        configureNavigateBar()
-        loadData()
+        configureTabBarItem()
+    
+  
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        sorting()
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         tableView.snp.makeConstraints { make in
@@ -44,6 +58,26 @@ class ViewController: UIViewController {
         
     }
     
+    func sorting() {
+        if model.sortType == .asc{
+            photoBank.sort{ $0.sign < $1.sign }
+            
+        } else {
+            photoBank.sort{ $0.sign > $1.sign }
+        }
+        tableView.reloadData()
+    }
+    
+    func configureTabBarItem() {
+
+        navigationController?.tabBarItem.title = "Files"
+        navigationController?.tabBarItem.image = UIImage(systemName: "tray.full")
+        navigationController?.tabBarItem.selectedImage = UIImage(systemName: "tray.full.fill")
+        navigationController?.tabBarItem.tag = 20
+
+    }
+    
+
     func configureNavigateBar(){
         navigationItem.title = "File Manager"
         navigationController?.navigationBar.backgroundColor = .white
@@ -63,6 +97,7 @@ class ViewController: UIViewController {
         let action = UIAlertAction(title: "Ok", style: .default){[weak self, weak ac] _ in
             guard let newName = ac?.textFields?[0].text else {return}
             self?.photoBank[index].sign = newName
+            self?.sorting()
             self?.tableView.reloadData()
             self?.saveData()
             
@@ -73,20 +108,21 @@ class ViewController: UIViewController {
     }
     
     func getDocumentsDirectory() -> URL {
-       FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        guard let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {fatalError()}
+        return dir
     }
     
     func saveData(){
         let jsonEncoder = JSONEncoder()
         if let data = try?  jsonEncoder.encode(photoBank) {
-            UserDefaults.standard.setValue(data, forKey:"photoBank")
+           try? data.write(to: getDocumentsDirectory().appendingPathComponent("photoBank"))
         }else {
             print("problem with save data")
         }
     }
     
     func loadData() {
-        guard let data =  UserDefaults.standard.object(forKey: "photoBank") as? Data else {return}
+        guard let data = try? Data(contentsOf: getDocumentsDirectory().appendingPathComponent("photoBank")) else {return}
          do
              {
                   photoBank = try JSONDecoder().decode([Photo].self, from: data)
@@ -126,7 +162,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension FileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        1
     }
@@ -170,7 +206,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension FileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let imageData = info[.editedImage] as? UIImage else { return}
